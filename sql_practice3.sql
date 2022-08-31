@@ -28,3 +28,39 @@ INSERT INTO markalar VALUES(102, 'Adidas', 10000);
 INSERT INTO markalar VALUES(103, 'LCWaikiki', 21000);
 select * from calisanlar;
 select * from markalar;
+
+
+-- SORU1: calisan sayisi 15.000’den cok olan markalarin isimlerini ve bu
+-- markada calisanlarin isimlerini ve maaşlarini listeleyin.
+
+select isim , maas , isyeri from calisanlar 
+where isyeri 
+in(select marka_isim from markalar where calisan_sayisi>15000)         -- baglanti noktasi
+
+-- in kulanacaksanin parantez icine aldiginiz sorgu birden fazla deger dondermeleir
+select * from calisanlar;--  tablos icin birlesme isyeri sutunu
+select * from markalar;   -- tablosu icin birlesme yeri marka_isim sutunu
+
+-- SORU2: marka_id’si 101’den büyük olan marka çalişanlarinin isim, maaş ve 
+-- şehirlerini listeleyiniz. 
+
+select isim,maas,sehir from calisanlar 
+where isyeri
+in(select marka_isim from markalar where marka_id>101);
+-- SORU3: Ankara’da calisani olan markalarin marka id'lerini ve calisan sayilarini listeleyiniz.
+  
+      
+-- SORU4: Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin toplam maaşini listeleyen bir Sorgu yaziniz.
+ 
+-- SORU5: Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin ortalama maaşini listeleyen bir Sorgu yaziniz.
+-- SORU6: Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin maksimum ve minumum maaşini listeleyen bir Sorgu yaziniz.
+-- SORU7: Her markanin id’sini, ismini ve toplam kaç şehirde bulunduğunu listeleyen bir SORGU yaziniz.
+
+
+
+
+
+
+
+
+
