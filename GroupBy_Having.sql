@@ -5,14 +5,16 @@ WHERE ifadesi birlikte kullanılmadığında HAVING ifadesine ihtiyac duyulmuşt
 GROUP BY ile kullanılır gruplamadan sonraki şart için group by dan sonra HAVING kullanılır
 */
 
+
+select * from personel;
 --Maaş ortalaması 3000’den fazla olan ülkelerdeki erkek çalışanların maaş ortalaması.
 select ulke,round(avg(maas)) as maas_ortalamasi from personel where cinsiyet='E'
 group by ulke having avg(maas)>3000;
 
 --ODEV: Erkek çalışanların sayısı 1’den fazla olan ülkelerin 
 --maaş ortalamasını getiren sorgu
-
-
+select ulke, round(avg(maas)) as maas_ortalamasi from personel where cinsiyet='E'
+group by ulke having count(cinsiyet='E')>1;
 
 
 
